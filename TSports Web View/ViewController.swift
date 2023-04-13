@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKUIDelegate {
 
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+//        let webUrl = "https://web-staging.tsports.com/live?content_id=0&msisdn=+8801722325732&app_id=1&session_token=asdfghjkl"
+        let webUrl = "https://tsports.com/"
+        
+        if let url = URL(string: webUrl) {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
+        
     }
-
-
 }
 
